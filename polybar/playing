@@ -1,4 +1,9 @@
 #!/bin/bash
-STR="%{F#cccccc}$(playerctl -p spotify metadata artist)%{F-} $(playerctl -p spotify metadata title)"
+
+#playerctl echos when there's no player instead of writing to standard out
+#making that error text invisible
+echo -n "%{F#00000000}"
+
+STR="%{F#30ffff}$(playerctl  metadata artist)%{F-} $(playerctl metadata title)"
 echo "$STR"
 exit

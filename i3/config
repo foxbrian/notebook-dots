@@ -9,7 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod mod1
+set $mod mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -184,4 +184,4 @@ gaps outer 10
 smart_borders on
 
 bindsym $mod+d exec --no-startup-id rofi -show run
-bindcode --release 64 exec rofim
+bindcode --release 133 exec rofi -show run

@@ -1,0 +1,4 @@
+#!/bin/bash
+STR="%{F#cccccc}$(playerctl -p spotify metadata artist)%{F-} $(playerctl -p spotify metadata title)"
+echo "$STR"
+exit

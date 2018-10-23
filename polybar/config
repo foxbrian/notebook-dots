@@ -1,0 +1,197 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+background = #00404040
+background-alt = #444
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #30ffff
+secondary = #e60053
+alert = #bd2c40
+
+[bar/top]
+width = 100%
+height = 20
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-top = 1
+border-left = 15
+border-right = 15
+
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = fixed:pixelsize=10;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = siji:pixelsize=10;1
+
+modules-left = i3
+modules-center = 
+modules-right = 
+
+wm-restack = i3
+
+override-redirect = true
+
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/bottom]
+width = 100%
+height = 20
+fixed-center = false
+bottom = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-bottom = 1
+border-left = 15
+border-right = 15
+
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = fixed:pixelsize=10;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = siji:pixelsize=10;1
+
+modules-left = 
+modules-center = 
+modules-right = battery date
+
+tray-position = right
+
+wm-restack = i3
+
+override-redirect = true
+
+cursor-scroll = ns-resize
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+
+label-mode-padding = 1
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-foreground = #dfdfdf
+label-focused-background = #85404040
+label-focused-underline = ${colors.primary}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = 1
+label-unfocused-foreground = #404040
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = 1
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${colors.primary}
+label-urgent-padding = 2
+
+
+[module/date]
+type = custom/script
+interval = 5
+
+exec = bash /home/brian/.config/polybar/date-time.sh
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+;format-charging-underline = #ffb52a
+
+format-discharging = <ramp-capacity> <label-discharging>
+;format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix = "█ "
+format-full-prefix-foreground = ${colors.primary}
+;format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = ▂
+ramp-capacity-1 = ▄
+ramp-capacity-2 = ▅
+ramp-capacity-3 = ▆
+ramp-capacity-4 = █
+ramp-capacity-foreground = ${colors.primary}
+
+animation-charging-0 = ▁
+animation-charging-1 = ▃
+animation-charging-2 = ▅
+animation-charging-3 = ▇
+animation-charging-4 = █
+animation-charging-foreground = ${colors.primary}
+animation-charging-framerate = 750
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = ⏣
+label-open-foreground = ${colors.secondary}
+label-close = x
+label-close-foreground = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = power
+menu-0-0-exec = xfce4-session-logout
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 0
+margin-bottom = 2
+

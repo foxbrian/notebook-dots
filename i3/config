@@ -152,8 +152,7 @@ mode "move" {
 bindsym $mod+t mode "move" focus floating
 
 ##user startup
-exec --no-startup-id /home/brian/.config/bin/fix_xcursor
-exec --no-startup-id xmodmap /home/brian/.xmodmap
+exec --no-startup-id nm-applet
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id polybar top
 exec --no-startup-id polybar bottom

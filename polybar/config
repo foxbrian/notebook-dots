@@ -44,7 +44,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = i3
-modules-center = 
+modules-center = playing 
 modules-right = 
 
 wm-restack = i3
@@ -129,12 +129,17 @@ label-urgent = %index%
 label-urgent-background = ${colors.primary}
 label-urgent-padding = 2
 
+[module/playing]
+type = custom/script
+interval = 1
+
+exec = /home/brian/.config/polybar/playing
 
 [module/date]
 type = custom/script
 interval = 5
 
-exec = bash /home/brian/.config/polybar/date-time.sh
+exec = /home/brian/.config/polybar/date-time.sh
 
 [module/battery]
 type = internal/battery

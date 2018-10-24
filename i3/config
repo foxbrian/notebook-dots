@@ -157,7 +157,7 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id polybar top
 exec --no-startup-id polybar bottom
 exec --no-startup-id compton --config /home/brian/.config/compton.conf
-
+exec --no-startup-id dunst
 
 #window defaults
 for_window [instance="nitrogen"] floating enable
@@ -184,3 +184,14 @@ smart_borders on
 
 bindsym $mod+d exec --no-startup-id rofi -show run
 bindcode --release 133 exec rofi -show run
+
+####################
+## Media Cantrols ##
+####################
+
+#toggle mute
+bindsym XF86AudioMute exec --no-startup-id pamute
+#increase volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id paup
+#decrease sound
+bindsym XF86AudioLowerVolume exec --no-startup-id padown

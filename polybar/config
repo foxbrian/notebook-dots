@@ -135,6 +135,8 @@ interval = 1
 
 exec = /home/brian/.config/polybar/playing
 
+click-left = playerctl play-pause
+
 [module/date]
 type = custom/script
 interval = 5

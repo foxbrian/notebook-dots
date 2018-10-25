@@ -3,10 +3,18 @@
 pactl set-sink-mute 0 toggle
 TEXT=$(pactl list sinks | grep "Volume: f" | awk '{print $5}')
 ID=$(cat /home/brian/.config/.dunst_volume)
-ICON="/usr/share/icons/breeze-dark/actions/24/audio-volume-muted.svg "
+if [ $(pactl list sinks | grep Mute | awk '{print $2}') == "no" ]
+then
+	ICON="/usr/share/icons/breeze-dark/actions/24/audio-volume-high.svg "
+	TITLE="Unmuted"
+else
+	ICON="/usr/share/icons/breeze-dark/actions/24/audio-volume-muted.svg "
+	TITLE="Muted"
+fi
+
 if [ $ID -gt "0" ]
 then
- dunstify -p -r $ID -i $ICON "Volume: $TEXT" >/home/brian/.config/.dunst_volume
+ dunstify  -p -t 1000 -r $ID -i $ICON "$TITLE" " $TEXT"  >/home/brian/.config/.dunst_volume
 else
- dunstify -p -i $ICON "Volume: $TEXT" >/home/brian/.config/.dunst_volume
+ dunstify  -p -t 1000 -i $ICON "$TITLE" " $TEXT"  >/home/brian/.config/.dunst_volume
 fi

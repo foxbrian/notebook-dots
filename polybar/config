@@ -143,6 +143,8 @@ interval = 5
 
 exec = /home/brian/.config/polybar/date-time.sh
 
+click-left = gsimplecal
+
 [module/battery]
 type = internal/battery
 battery = BAT0

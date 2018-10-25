@@ -1,12 +1,13 @@
 #!/bin/bash
 
+pactl set-sink-mute 0 0
 pactl set-sink-volume 0 -5%
 TEXT="$(pactl list sinks | grep "Volume: f" | awk '{print $5}')"
 ID=$(cat /home/brian/.config/.dunst_volume)
 ICON="/usr/share/icons/breeze-dark/actions/24/audio-volume-medium.svg "
 if [ $ID -gt "0" ]
 then
- dunstify -p -r $ID -i $ICON "Volume: $TEXT" >/home/brian/.config/.dunst_volume
+ dunstify -t 1000 -p -r $ID -i $ICON "Volume" " $TEXT" >/home/brian/.config/.dunst_volume
 else
- dunstify -p -i $ICON "Volume: $TEXT" >/home/brian/.config/.dunst_volume
+ dunstify -t 1000 -p -i $ICON "Volume" " $TEXT" >/home/brian/.config/.dunst_volume
 fi

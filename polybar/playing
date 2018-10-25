@@ -1,9 +1,19 @@
 #!/bin/bash
 
-#playerctl echos when there's no player instead of writing to standard out
+#playerctl echos an error  when there's no player instead of writing to standard out
 #making that error text invisible
 echo -n "%{F#00000000}"
 
-STR="%{F#30ffff}$(playerctl  metadata artist)%{F-} $(playerctl metadata title)"
+STR="$(playerctl  metadata artist)%{F-} $(playerctl metadata title)"
+if [ "$(playerctl status)" == "Playing" ] 
+then 		
+	STR="%{F#30ffff}  $STR"
+else 
+	if [ "$(playerctl status)" == "Paused" ]
+	then
+		STR="%{F#30ffff}  $STR"
+	fi
+fi
+
 echo "$STR"
 exit

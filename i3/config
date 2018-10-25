@@ -182,8 +182,8 @@ gaps inner 15
 gaps outer 10
 smart_borders on
 
-bindsym $mod+d exec --no-startup-id rofi -show run
-bindcode --release 133 exec rofi -show run
+bindsym $mod+d exec --no-startup-id rofi -show drun
+bindcode --release 133 exec rofi -show drun
 
 ####################
 ## Media Cantrols ##

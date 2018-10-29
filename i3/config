@@ -153,6 +153,7 @@ bindsym $mod+t mode "move" focus floating
 
 ##user startup
 exec --no-startup-id nm-applet
+exec --no-startup-id pasystray
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id polybar top
 exec --no-startup-id polybar bottom
@@ -183,7 +184,7 @@ gaps outer 10
 smart_borders on
 
 bindsym $mod+d exec --no-startup-id rofi -show drun
-bindcode --release 133 exec rofi -show drun
+bindcode --release 133 exec --no-startup-id rofi -show drun
 
 ####################
 ## Media Cantrols ##

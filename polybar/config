@@ -11,7 +11,7 @@
 background = #00404040
 background-alt = #444
 foreground = #dfdfdf
-foreground-alt = #555
+foreground-alt = #999999
 primary = #30ffff
 secondary = #e60053
 alert = #bd2c40
@@ -87,7 +87,7 @@ font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
 modules-left = 
 modules-center = 
-modules-right = battery date
+modules-right = battery date 
 
 tray-position = right
 
@@ -178,22 +178,27 @@ animation-charging-4 = 
 animation-charging-foreground = ${colors.primary}
 animation-charging-framerate = 750
 
-[module/powermenu]
+[module/volume]
 type = custom/menu
 
 expand-right = true
 
 format-spacing = 1
 
-label-open = ⏣
-label-open-foreground = ${colors.secondary}
-label-close = x
-label-close-foreground = ${colors.secondary}
+label-open = 
+label-open-foreground = ${colors.foreground}
+label-close = 
+label-close-foreground = ${colors.foreground}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
-menu-0-0 = power
-menu-0-0-exec = xfce4-session-logout
+menu-0-0 = 
+menu-0-0-exec = paup
+menu-0-1 = 
+menu-0-1-exec = padown
+menu-0-2 = 
+menu-0-2-exec = pamute
+
 
 [settings]
 screenchange-reload = true

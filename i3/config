@@ -202,3 +202,7 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 #mpris play/pause
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+#backlight decrease
+bindsym XF86MonBrightnessDown exec --no-startup-id backlight dec
+#backlight increase
+bindsym XF86MonBrightnessUp exec --no-startup-id backlight inc

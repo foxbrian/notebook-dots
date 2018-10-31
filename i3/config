@@ -191,11 +191,11 @@ bindcode --release 133 exec --no-startup-id rofi -show drun
 ####################
 
 #toggle mute
-bindsym XF86AudioMute exec --no-startup-id pamute
+bindsym XF86AudioMute exec --no-startup-id pamedia mute
 #increase volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id paup
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamedia up
 #decrease sound
-bindsym XF86AudioLowerVolume exec --no-startup-id padown
+bindsym XF86AudioLowerVolume exec --no-startup-id pamedia down
 #mpris next
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 #mpris prev

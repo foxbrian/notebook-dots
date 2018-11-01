@@ -159,8 +159,13 @@ exec --no-startup-id polybar top
 exec --no-startup-id polybar bottom
 exec --no-startup-id compton --config /home/brian/.config/compton.conf
 exec --no-startup-id dunst
+exec --no-startup-id synclient TapButton2=3
+exec --no-startup-id synclient TapButton3=2
+#adds write permission to brightness file. must be done after startup. Given NOPASSWD for all users
+#this is pretty jank but xbacklight isn't working and I don't want to change it now
+exec --no-startup-id sudo /home/brian/.config/backlight.start
 
-#window defaults
+##window defaults
 for_window [instance="nitrogen"] floating enable
 for_window [instance="alsamixer"] floating enable
 for_window [instance="pavucontrol"] floating enable

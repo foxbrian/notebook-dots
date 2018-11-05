@@ -30,8 +30,8 @@ bindsym $mod+Shift+e exit
 bindsym $mod+l exec --no-startup-id i3lock
 
 #scratchpad
-bindsym $mod+m move scratchpad
-bindsym $mod+Shift+m scratchpad show
+bindsym $mod+Shift+m move scratchpad
+bindsym $mod+m exec --no-startup-id i3scratch
 
 # start a terminal
 bindsym $mod+Return exec konsole

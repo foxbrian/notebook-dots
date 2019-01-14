@@ -17,6 +17,7 @@ then
 	if [ $NEW -lt "10" ] 
 	then 
 		echo "too low"
+		exit 1
 	else
 		echo $NEW > /sys/class/backlight/amdgpu_bl0/brightness
 	fi
@@ -44,3 +45,4 @@ then
 else
  dunstify -t 1000 -p -i $ICON "Backlight" " $TEXT" >/home/brian/.config/.dunst_backlight
 fi
+exit 0

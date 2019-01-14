@@ -4,7 +4,7 @@
  **/
 configuration {
 	show-icons: true;
-	drun-icon-theme: "Papirus-Dark" ;
+	icon-theme: "Papirus-Dark" ;
 	display-drun: "🔍 はじめ";
 }
 * {

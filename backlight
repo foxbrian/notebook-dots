@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [ $1 == "inc" ]
+then
+	sudo brightnessctl s +10
+	TITLE="Backlight"
+	ICON="/usr/share/icons/Papirus-Dark/symbolic/status/display-brightness-high-symbolic.svg"
+else if [ $1 == "dec" ]
+then
+	sudo brightnessctl s 10-
+	TITLE="Backlight"
+	ICON="/usr/share/icons/Papirus-Dark/symbolic/status/display-brightness-medium-symbolic.svg "
+else
+	exit 1
+fi
+fi
+
+ID=$(cat /home/brian/.config/.dunst_volume)
+TEXT=$(brightnessctl g)
+if [ $ID -gt "0" ]
+then
+ dunstify  -p -t 1000 -r $ID -i $ICON "$TITLE" " $TEXT"  >/home/brian/.config/.dunst_volume
+else
+ dunstify  -p -t 1000 -i $ICON "$TITLE" " $TEXT"  >/home/brian/.config/.dunst_volume
+fi

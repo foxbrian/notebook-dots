@@ -4,12 +4,12 @@ if [ $1 == "inc" ]
 then
 	sudo brightnessctl s +10
 	TITLE="Backlight"
-	ICON="/usr/share/icons/Papirus-Dark/symbolic/status/display-brightness-high-symbolic.svg"
+	ICON="/home/brian/.config/display-brightness-high-symbolic.png"
 else if [ $1 == "dec" ]
 then
 	sudo brightnessctl s 10-
 	TITLE="Backlight"
-	ICON="/usr/share/icons/Papirus-Dark/symbolic/status/display-brightness-medium-symbolic.svg "
+	ICON="/home/brian/.config/display-brightness-symbolic.png"
 else
 	exit 1
 fi

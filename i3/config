@@ -17,7 +17,7 @@ font pango:monospace 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 # doesn't work with current super keycode binding
-floating_modifier ctrl
+floating_modifier $mod
 
 focus_follows_mouse no
 

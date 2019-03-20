@@ -10,6 +10,8 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod mod4
+set $inner 15
+set $outer 10
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -60,6 +62,16 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+
+# toggle between 0 gaps and default gaps
+bindsym $mod+Shift+f exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po \
+    '.*\\"gaps\\":{\\"inner\\":\K(-|)[0-9]+(?=.*\\"focused\\":true)'` -eq 0 ]; then \
+        i3-msg gaps inner current set 0; \
+	i3-msg gaps outer current set 0; \
+    else \
+        i3-msg gaps inner current set $inner; \
+	i3-msg gaps outer current set $outer; \
+    fi"
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -155,7 +167,8 @@ bindsym $mod+t mode "move" focus floating
 ##user startup
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
-exec --no-startup-id nitrogen --restore
+#exec --no-startup-id nitrogen --restore
+exec --no-startup-id feh --bg-scale /home/brian/.BackgroundChanger/1.png
 exec --no-startup-id polybar top
 exec --no-startup-id polybar bottom
 exec --no-startup-id compton --config /home/brian/.config/compton.conf
@@ -164,6 +177,7 @@ exec --no-startup-id synclient TapButton2=3
 exec --no-startup-id synclient TapButton3=2
 exec --no-startup-id ibus-daemon
 exec --no-startup-id xmodmap /home/brian/.config/xmodmap
+exec --no-startup-id plasma-browser-integration-host
 
 ##window defaults
 for_window [instance="nitrogen"] floating enable
@@ -173,6 +187,7 @@ for_window [instance="paman"] floating enable
 for_window [instance="lxappearance"] floating enable
 for_window [instance="cheese"] floating enable
 for_window [instance="pystopwatch"] floating enable
+for_window [instance="tk"] floating enable
 
 #window appearance
 default_orientation horizontal
@@ -184,8 +199,8 @@ client.focused_inactive #303030 #303030 #aab0c0 #303030 #10101070
 
 
 #gaps
-gaps inner 15
-gaps outer 10
+gaps inner $inner
+gaps outer $outer
 smart_borders on
 
 bindsym $mod+d exec --no-startup-id rofi -show drun

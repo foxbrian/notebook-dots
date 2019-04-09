@@ -177,7 +177,7 @@ exec --no-startup-id synclient TapButton2=3
 exec --no-startup-id synclient TapButton3=2
 exec --no-startup-id fcitx -d
 #exec --no-startup-id xmodmap /home/brian/.config/xmodmap
-exec --no-startup-id plasma-browser-integration-host
+#exec --no-startup-id plasma-browser-integration-host
 
 ##window defaults
 for_window [instance="nitrogen"] floating enable

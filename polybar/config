@@ -85,9 +85,10 @@ font-1 = Noto Sans Mono:size=10;1
 font-2 = FontAwesome:size=10;1
 font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-modules-left = 
+modules-left = cpu memory
 modules-center = 
 modules-right = battery date 
+
 
 tray-position = right
 
@@ -147,6 +148,43 @@ exec = /home/brian/.config/polybar/date-time.sh
 
 click-left = gsimplecal
 
+[module/cpu]
+type = internal/cpu
+interval = 1
+
+format = <label> <bar-load>
+label = %{F#80ffff} %{F-}%percentage%%
+
+bar-load-width = 15
+bar-load-empty = ━
+bar-load-indicator = 
+bar-load-foreground-0 = ${colors.primary}
+bar-load-indicator-font = 6
+bar-load-indicator-foreground = ${colors.primary}
+bar-load-fill = ━
+bar-load-fill-font = 6
+bar-load-empty-font = 6
+bar-load-empty-foreground = #444444
+
+[module/memory]
+type = internal/memory
+format = <label>  <bar-used> 
+interval = 1
+
+label = %{F#80ffff} %{F-}%gb_used%
+lable-foreground =${colors.primary}
+
+bar-used-width = 15
+bar-used-fill-foreground = ${colors.primary}
+bar-used-indicator = 
+bar-used-indicator-font = 6
+bar-used-indicator-foreground = #ff
+bar-used-fill = ━
+bar-used-empty = ━
+bar-used-fill-font = 6
+bar-used-empty-font = 6
+bar-used-empty-foreground = #444444
+
 [module/battery]
 type = internal/battery
 battery = BAT0
@@ -177,28 +215,6 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-foreground = ${colors.primary}
 animation-charging-framerate = 750
-
-[module/volume]
-type = custom/menu
-
-expand-right = true
-
-format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.foreground}
-label-close = 
-label-close-foreground = ${colors.foreground}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = 
-menu-0-0-exec = paup
-menu-0-1 = 
-menu-0-1-exec = padown
-menu-0-2 = 
-menu-0-2-exec = pamute
-
 
 [settings]
 screenchange-reload = true
